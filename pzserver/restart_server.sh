@@ -1,0 +1,1 @@
+/home/lgsm/pzserver r

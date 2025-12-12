@@ -1,0 +1,232 @@
+{
+    "name": "Project Zomboid",
+    "steam": true,
+    "steam_app_id": "108600",
+    "steam_app_id_server": "380870",
+    "modding": true,
+    "workshop": true,
+    "manual_mod_upload": false,
+    "parameters": [
+      {
+        "key": "-servername",
+        "type": "string",
+        "label": "Server Name",
+        "description": "Sets the internal servername to use. Affects the name of the save files that are loaded/saved.",
+        "defaultValue": "BSL My PZ Server",
+        "required": true,
+        "editable": true,
+        "validation": {
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "category": "General"
+      },
+      {
+        "key": "-adminusername",
+        "type": "string",
+        "label": "Admin Username",
+        "description": "Uses a different username for the default admin user when creating a server. Doesn't remove previous default admin user if there is one.",
+        "required": false,
+        "editable": true,
+        "validation": {
+          "minLength": 1,
+          "maxLength": 32
+        },
+        "category": "Security"
+      },
+      {
+        "key": "-adminpassword",
+        "type": "string",
+        "label": "Admin Password",
+        "description": "Set the default admin user's password automatically, bypassing the prompt if the default admin user is not found.",
+        "required": false,
+        "editable": true,
+        "validation": {
+          "minLength": 8,
+          "maxLength": 128
+        },
+        "category": "Security"
+      },
+      {
+        "key": "-port",
+        "label": "Default Port (TCP)",
+        "description": "Overrides the DefaultPort config option in the INI file.",
+        "required": false,
+        "defaultValue": 16261,
+        "editable": true,
+        "type": "integer",
+        "validation": {
+          "min": 1024,
+          "max": 65535
+        },
+        "category": "Network"
+      },
+      {
+        "key": "-udpport",
+        "type": "integer",
+        "label": "UDP Port",
+        "description": "Overrides the UDPPort config option in the INI file.",
+        "required": false,
+        "defaultValue": 16261,
+        "editable": true,
+        "validation": {
+          "min": 1024,
+          "max": 65535
+        },
+        "category": "Network"
+      },
+      {
+        "key": "-ip",
+        "type": "string",
+        "label": "Bind IP Address",
+        "description": "Forces the server to bind to a specific IP address.",
+        "defaultValue": "127.0.0.1",
+        "required": false,
+        "editable": true,
+        "validation": {
+          "pattern": "^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$"
+        },
+        "category": "Network"
+      },
+      {
+        "key": "-steamvac",
+        "type": "bool",
+        "label": "Steam VAC",
+        "description": "Enables or disables Valve Anti-Cheat on the server. Overrides the option in the server INI config.",
+        "required": false,
+        "defaultValue": true,
+        "editable": true,
+        "category": "Security"
+      },
+      {
+        "key": "-statistic",
+        "type": "bool",
+        "label": "Statistics Period",
+        "description": "Enables multiplayer statistics monitoring. The period is measured in seconds. Statistics saved in cachedir/Statistic directory.",
+        "defaultValue": false,
+        "required": false,
+        "editable": true,
+        "validation": {
+          "min": 1,
+          "max": 3600
+        },
+        "category": "Monitoring"
+      },
+      {
+        "key": "-disablelog",
+        "type": "string",
+        "label": "Disable Log Types",
+        "description": "Disables certain filters in the console log. Takes comma-separated list of DebugType values (e.g., All, Network, Sound).",
+        "defaultValue": false,
+        "required": false,
+        "editable": true,
+        "category": "Logging"
+      },
+      {
+        "key": "-debuglog",
+        "type": "string",
+        "label": "Debug Log Types",
+        "description": "Enables certain filters in the console log. Takes comma-separated list of DebugType values (e.g., All, Network, Sound).",
+        "defaultValue": false,
+        "required": false,
+        "editable": true,
+        "category": "Logging"
+      },
+      {
+        "key": "-Xms",
+        "type": "byteSize",
+        "label": "Minimum Memory (JVM)",
+        "description": "The minimum amount of memory to allocate to the JVM. Game will not start if insufficient memory available.",
+        "required": false,
+        "defaultValue": 2048,
+        "editable": true,
+        "validation": {
+          "min": 2048,
+          "max": 65536,
+          "unitSuffix": "m"
+        },
+        "relatedTo": {
+          "key": "-Xmx",
+          "constraint": "lessThanOrEqual",
+          "message": "Minimum memory cannot be greater than maximum memory"
+        },
+        "category": "Performance"
+      },
+      {
+        "key": "-Xmx",
+        "type": "byteSize",
+        "label": "Maximum Memory (JVM)",
+        "description": "The maximum amount of memory to allocate to the JVM. Setting above physical RAM will use virtual memory.",
+        "required": false,
+        "defaultValue": "2048",
+        "editable": true,
+        "validation": {
+          "min": 2048,
+          "max": 65536,
+          "unitSuffix": "m"
+        },
+        "relatedTo": {
+          "key": "-Xms",
+          "constraint": "greaterThanOrEqual",
+          "message": "Maximum memory cannot be less than minimum memory"
+        },
+        "category": "Performance",
+        "warning": "Setting above physical RAM amount will use virtual memory and may cause performance issues"
+      },
+      {
+        "key": "-Dzomboid.ConsoleDotTxtSizeKB",
+        "type": "integer",
+        "label": "Console Log Size",
+        "description": "Sets the maximum console.txt file size in kilobytes.",
+        "required": false,
+        "defaultValue": "512000",
+        "editable": true,
+        "validation": {
+          "min": 1024,
+          "max": 10485760
+        },
+        "category": "Logging"
+      },
+      {
+        "key": "-Dzomboid.steam",
+        "type": "bool",
+        "label": "Steam Integration",
+        "description": "Enables/disables the game's Steam API integration. Disabling prevents joining Steam servers or accessing Workshop content.",
+        "required": false,
+        "defaultValue": false,
+        "editable": true,
+        "category": "General"
+      },
+      {
+        "key": "-Ddeployment.user.cachedir",
+        "type": "string",
+        "label": "Cache Directory",
+        "description": "Sets the game's cache directory. Same as -cachedir. Only works on Linux.",
+        "required": false,
+        "editable": true,
+        "category": "Advanced",
+        "warning": "Only works on Linux"
+      },
+      {
+        "key": "-Dsoftreset",
+        "type": "bool",
+        "label": "Soft Reset",
+        "description": "Forces the game to perform a soft reset.",
+        "required": false,
+        "defaultValue": false,
+        "editable": false,
+        "category": "Advanced",
+        "warning": "Does not work as of Build 41.78.16. Issue reported, may be fixed in future versions"
+      },
+      {
+        "key": "-Ddebug",
+        "type": "bool",
+        "label": "Debug Mode",
+        "description": "Launches the game in debug mode. Makes the CoopMaster coop server use debug mode if enabled.",
+        "required": false,
+        "defaultValue": false,
+        "editable": true,
+        "category": "Development"
+      }
+    ]
+  }
