@@ -18,7 +18,7 @@ to_mb() {
 }
 
 OUTPUT=$(/home/lgsm/pzserver details 2>&1 | clean)
-GAME_INFO_FILE="/home/lgsm/blazor_lgsm/game_info.json"
+GAME_INFO_FILE="/home/lgsm/blazor_lgsm/scripts/game_info.json"
 
 CPU_MODEL=$(echo "$OUTPUT" | grep "Model:" | sed 's/Model:\s*//')
 CPU_CORES=$(echo "$OUTPUT" | grep "Cores:" | awk '{print $2}')

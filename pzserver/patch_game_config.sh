@@ -9,7 +9,7 @@ INI_DIRS=(
 )
 
 # Check patch file
-[ ! -f "$PATCH_FILE" ] && echo "Missing $PATCH_FILE" && exit 1
+[ ! -f "$PATCH_FILE" ] && echo "Missing $PATCH_FILE" && exit 0
 
 declare -A PATCHES
 

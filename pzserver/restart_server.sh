@@ -1,2 +1,2 @@
-bash /home/lgsm/blazor_lgsm/patch_game_config.sh
+bash /home/lgsm/blazor_lgsm/scripts/patch_game_config.sh
 /home/lgsm/pzserver r

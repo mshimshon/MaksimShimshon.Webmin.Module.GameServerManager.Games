@@ -3,6 +3,7 @@
     "steam": true,
     "steam_app_id": "108600",
     "steam_app_id_server": "380870",
+    "steam_branch": ["42.13.1"],
     "modding": true,
     "workshop": true,
     "manual_mod_upload": false,

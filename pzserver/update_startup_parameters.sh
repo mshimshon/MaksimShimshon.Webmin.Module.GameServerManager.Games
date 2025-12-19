@@ -15,7 +15,7 @@ fi
 KEY="$1"
 VALUE="$2"
 
-GAME_INFO_FILE="/home/lgsm/blazor_lgsm/game_info.json"
+GAME_INFO_FILE="/home/lgsm/blazor_lgsm/scripts/game_info.json"
 STARTUP_PARAMS_FILE="/home/lgsm/blazor_lgsm/user_startup_parameters.json"
 
 # Check if game_info.json exists
